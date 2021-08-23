@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
     <title>Cocktail Training</title>
 </head>
 <body>
-    <h1>Test</h1>
+    {% for test in test %}
+        {{test.test_ingred_name}}
+    {% endfor %}
+    <h1>test</h1>
+
 </body>
+<script src="{{ url_for('static', filename='js/script.js')}}"></script>
 </html>
