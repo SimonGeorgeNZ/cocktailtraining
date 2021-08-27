@@ -8,10 +8,19 @@
     <title>Cocktail Training</title>
 </head>
 <body>
-    {% for test in test %}
-        {{test.test_ingred_name}}
+    {% for x in ctail %}
+        {{x.name}}
+        {{x.glass}}
+        {{x.base}}
+        {{x.steps}}
+        {{x.wrong_steps1}}
+        {{x.wrong_steps2}}
+        {{x.wrong_steps3}}
+        {{x.strained}}
+        {{x.garnish}}
     {% endfor %}
-    <h1>test</h1>
+    
+    <h1>test1</h1>
 
 </body>
 <script src="{{ url_for('static', filename='js/script.js')}}"></script>

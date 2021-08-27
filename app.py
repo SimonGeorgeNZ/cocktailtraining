@@ -13,8 +13,8 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def home():
-    test = mongo.db.ingredients.find()
-    return render_template('index.html', test=test)
+    ctail = mongo.db.cocktail.find()
+    return render_template('index.html', ctail=ctail)
 
 
 if __name__ == "__main__":
