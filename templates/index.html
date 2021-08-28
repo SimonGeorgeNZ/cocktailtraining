@@ -9,15 +9,18 @@
 </head>
 <body>
     {% for x in ctail %}
-        {{x.name}}
-        {{x.glass}}
-        {{x.base}}
-        {{x.steps}}
-        {{x.wrong_steps1}}
-        {{x.wrong_steps2}}
-        {{x.wrong_steps3}}
-        {{x.strained}}
-        {{x.garnish}}
+    <ul>
+        <li>{{x.name}}</li>
+        <li>{{x.glass}}</li>
+        <li>{{x.base}}</li>
+        <li>{{x.steps}}</li>
+        <li>{{x.wrong_steps1}}</li>
+        <li>{{x.wrong_steps2}}</li>
+        <li>{{x.wrong_steps3}}</li>
+        <li>{{x.strained}}</li>
+        <li>{{x.garnish}}</li>
+    </ul>
+        
     {% endfor %}
     
     <h1>test1</h1>
