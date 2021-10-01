@@ -8,22 +8,18 @@
     <title>Cocktail Training</title>
 </head>
 <body>
-    <!-- {% for x in ctail %}
-    <ul>
-        <li>{{x.name}}</li>
-        <li>{{x.glass}}</li>
-        <li>{{x.base}}</li>
-        <li>{{x.steps}}</li>
-        <li>{{x.wrong_steps1}}</li>
-        <li>{{x.wrong_steps2}}</li>
-        <li>{{x.wrong_steps3}}</li>
-        <li>{{x.strained}}</li>
-        <li>{{x.garnish}}</li>
-    </ul>
-        
-    {% endfor %} -->
+
     
     <h1>test1</h1>
+    {% for ctail in ctail %}
+    {{ ctail.name }}
+    {% endfor %}
+
+    {% for q in q %}
+    {{ q.garnish }}
+    {% endfor %}
+
+    {{ test.string }}
 
 </body>
 <script src="{{ url_for('static', filename='js/script.js')}}"></script>

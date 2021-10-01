@@ -3,8 +3,7 @@ from flask import Flask, render_template, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
-from class_ import *
-
+import class_
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'CocktailTraining'
@@ -15,8 +14,10 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def home():
-    ctail = mongo.db.cocktail.find()
-    return render_template('index.html', ctail=ctail)
+    test = class_.Test
+    ctail = class_.Test.ctail
+    quest = mongo.db.questions.find()
+    return render_template('index.html', ctail=ctail, test=test, q=quest)
 
 
 if __name__ == '__main__':
