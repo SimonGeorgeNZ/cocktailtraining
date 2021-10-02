@@ -1,0 +1,9 @@
+body {
+    padding: 25px;
+}
+
+.main {
+    border: 3px solid black !important;
+    margin: 20px;
+    padding: 20px;
+}

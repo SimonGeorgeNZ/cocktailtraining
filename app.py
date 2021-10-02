@@ -14,10 +14,14 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def home():
-    test = class_.Test
-    ctail = class_.Test.ctail
-    quest = mongo.db.questions.find()
-    return render_template('index.html', ctail=ctail, test=test, q=quest)
+    list = ['multi', 'single'] #List of collection
+    q_list = ['garnish', 'glass'] #List of category for question
+    cat = random.choice(list) # Finds random collection
+    MDB_cat = mongo.db[cat].find_one() #Finds collection in MDB
+    quest = random.choice(q_list) # Finds random question
+    question = getattr(MDB_cat, 'quest')
+    MDB_quest = mongo.db[MDB_cat][quest].find_one() # Adds all info together
+    return render_template('index.html', x=MDB_quest)
 
 
 if __name__ == '__main__':
