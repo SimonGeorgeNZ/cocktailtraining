@@ -1,9 +1,9 @@
 import os
+import random
 from flask import Flask, render_template, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
-import class_
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'CocktailTraining'
@@ -14,14 +14,26 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def home():
-    list = ['multi', 'single'] #List of collection
-    q_list = ['garnish', 'glass'] #List of category for question
-    cat = random.choice(list) # Finds random collection
-    MDB_cat = mongo.db[cat].find_one() #Finds collection in MDB
-    quest = random.choice(q_list) # Finds random question
-    question = getattr(MDB_cat, 'quest')
-    MDB_quest = mongo.db[MDB_cat][quest].find_one() # Adds all info together
-    return render_template('index.html', x=MDB_quest)
+    class Question():
+
+        sub = ['garnish', 'glass']  #List of entry for question
+        pickSub = random.choice(sub)  # Finds random question
+        list = ['multi', 'single']  #List of collection
+        cat = random.choice(list)  # Finds random collection
+        cocktail = ['Mojito', 'Pina Colada', 'Pink Gin Fizz', 'Margarita Classic', 'Backwards Negroni', 'Sugar Mama', 'The girl next door']
+        pickCock = random.choice(cocktail)
+
+        def __str__(self):
+            return self.name
+
+    ps = Question.pickSub
+    cate = Question.cat
+    all = mongo.db[ps].find_one()  #Find subject
+    pc = Question.pickCock  #Generate cocktail name
+    getCT = mongo.db.cocktail.find_one({"name": pc })  #Find cocktail
+    sm = all[cate]  #Get single or multi
+    quest = getCT[ps]
+    return render_template('index.html', sm=sm, CT=getCT, pc=pc, ps=ps, q=quest, cate=cate)
 
 
 if __name__ == '__main__':
