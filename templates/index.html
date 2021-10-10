@@ -11,15 +11,28 @@
 <body>
     <div class="row main">
         <h1>Question</h1>
-        Subject = {{ ps }} <br>
-        Single or multi = {{ cate }} <br>
-        What cocktail randomly generated = {{ pc }} <br>
-        MongoDB call what cocktail = {{ CT.name }} <br>
-        Full Question = {{ q }} {{ sm }}
+        <!-- Match the following {{ ps }} with the correct cocktail <br>
+        {{ ps | title}} = {{ q }} -->
+
+        
+        x {{ x[0] }} <br>
+        x {{ x[1] }} <br>
+        x {{ x[2] }} <br>
+        x {{ x[3] }} <br>
+
+        {% for y in x %}
+        {{ y }}
+        {% endfor %}
 
     </div>
     <div class="row main">
         <h1>Answers</h1>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
 
     </div>
     <div class="row main">

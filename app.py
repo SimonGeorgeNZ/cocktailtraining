@@ -22,18 +22,21 @@ def home():
         cat = random.choice(list)  # Finds random collection
         cocktail = ['Mojito', 'Pina Colada', 'Pink Gin Fizz', 'Margarita Classic', 'Backwards Negroni', 'Sugar Mama', 'The girl next door']
         pickCock = random.choice(cocktail)
+        test = random.sample(cocktail, 4)
 
         def __str__(self):
             return self.name
 
     ps = Question.pickSub
-    cate = Question.cat
-    all = mongo.db[ps].find_one()  #Find subject
+    x = Question.test
+    # cate = Question.cat
+    # sub = mongo.db[ps].find_one()  #Find subject
     pc = Question.pickCock  #Generate cocktail name
-    getCT = mongo.db.cocktail.find_one({"name": pc })  #Find cocktail
-    sm = all[cate]  #Get single or multi
-    quest = getCT[ps]
-    return render_template('index.html', sm=sm, CT=getCT, pc=pc, ps=ps, q=quest, cate=cate)
+    # sm = sub[cate]  #Get single or multi
+    # quest = getCT[ps]
+    for y in x:
+        getCT = mongo.db.cocktail.find_one({"name": y})  #Find cocktai
+    return render_template('index.html', ps=ps, x=x, a=getCT)
 
 
 if __name__ == '__main__':
