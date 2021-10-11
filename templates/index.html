@@ -11,28 +11,23 @@
 <body>
     <div class="row main">
         <h1>Question</h1>
-        <!-- Match the following {{ ps }} with the correct cocktail <br>
-        {{ ps | title}} = {{ q }} -->
+        Match the following {{ ps }} with the correct cocktail <br>
+        {{ ps | title}} = {{ full[ps] }}
+        <br>
 
-        
-        x {{ x[0] }} <br>
-        x {{ x[1] }} <br>
-        x {{ x[2] }} <br>
-        x {{ x[3] }} <br>
 
-        {% for y in x %}
-        {{ y }}
-        {% endfor %}
+
 
     </div>
     <div class="row main">
         <h1>Answers</h1>
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            {% for each in choices %}
+            <li>{{each}}</li>
+            {% endfor %}
         </ul>
+
+        {{ name }}
 
     </div>
     <div class="row main">

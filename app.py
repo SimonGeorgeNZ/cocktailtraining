@@ -18,25 +18,24 @@ def home():
 
         sub = ['garnish', 'glass']  #List of entry for question
         pickSub = random.choice(sub)  # Finds random question
-        list = ['multi', 'single']  #List of collection
-        cat = random.choice(list)  # Finds random collection
-        cocktail = ['Mojito', 'Pina Colada', 'Pink Gin Fizz', 'Margarita Classic', 'Backwards Negroni', 'Sugar Mama', 'The girl next door']
-        pickCock = random.choice(cocktail)
-        test = random.sample(cocktail, 4)
+        cocktailsAll = mongo.db.cocktail.find()
+        CTnames = cocktailsAll.distinct("name")
+        NameList = [CTnames]
+        for names in NameList:
+            choices = random.sample(names, 4)
+        correct = random.choice(choices)
+        FullCT = mongo.db.cocktail.find_one({"name":correct})
+        AnsName = correct
+        choices = choices
+        
 
-        def __str__(self):
-            return self.name
+    pickSB = Question.pickSub
+    fullCT = Question.FullCT
+    ansName = Question.AnsName
+    choices = Question.choices
 
-    ps = Question.pickSub
-    x = Question.test
-    # cate = Question.cat
-    # sub = mongo.db[ps].find_one()  #Find subject
-    pc = Question.pickCock  #Generate cocktail name
-    # sm = sub[cate]  #Get single or multi
-    # quest = getCT[ps]
-    for y in x:
-        getCT = mongo.db.cocktail.find_one({"name": y})  #Find cocktai
-    return render_template('index.html', ps=ps, x=x, a=getCT)
+    return render_template('index.html', 
+                            ps=pickSB, full=fullCT, name=ansName, choices=choices)
 
 
 if __name__ == '__main__':
