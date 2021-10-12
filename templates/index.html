@@ -15,15 +15,13 @@
         {{ ps | title}} = {{ full[ps] }}
         <br>
 
-
-
-
     </div>
     <div class="row main">
         <h1>Answers</h1>
         <ul>
             {% for each in choices %}
-            <li>{{each}}</li>
+            <input type="radio" id='{{each}}' name='choices' value='{{each}}'>
+            <label for='{{each}}'>{{each}}</label><br>
             {% endfor %}
         </ul>
 
