@@ -6,4 +6,5 @@ body {
     border: 3px solid black !important;
     margin: 20px;
     padding: 20px;
+    overflow-wrap: break-word;
 }

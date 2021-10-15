@@ -11,9 +11,17 @@
 <body>
     <div class="row main">
         <h1>Question</h1>
+        {% if x == 'multi' %}
         Match the following {{ ps }} with the correct cocktail <br>
-        {{ ps | title}} = {{ full[ps] }}
+        {{ ps | title}} = {{ full[ps] }} <br>
+        {% if ps == 'steps' %}
+        Ingredients = {{ full.ingredients }} <br>
+        {% endif %} 
+        {% elif x == 'YN' %}
+        Hello
+        {% endif %}
         <br>
+        sub choice{{ x }}
 
     </div>
     <div class="row main">
