@@ -33,7 +33,7 @@ def home():
         for names in NameList:
             choices = random.sample(names, 4)
             correct = random.choice(choices)
-            FullCT = mongo.db.cocktail.find_one({"name" : correct})
+            FullCT = mongo.db.cocktail.find_one({"name": correct})
             AnsName = correct
             choices = choices
 
