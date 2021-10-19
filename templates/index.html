@@ -18,11 +18,23 @@
         Ingredients = {{ full.ingredients }} <br>
         {% endif %} 
         {% elif x == 'YN' %}
-        Hello
+        Hello <br><br>
         {% endif %}
-        {{ full }}
+
         <br>
-        sub choice{{ x }}
+        sub choice{{ x }} <br><br><br>
+        
+        {% for x in allCock %}
+        {% for z in choices %}
+        {% if z == x.name %}
+        {{ x }} <br><br><br>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+
+
+
+
 
     </div>
     <div class="row main">
@@ -34,7 +46,7 @@
             {% endfor %}
         </ul>
 
-        {{ name }}
+        {{ theName }}
 
     </div>
     <div class="row main">

@@ -34,18 +34,22 @@ def home():
             choices = random.sample(names, 4)
             correct = random.choice(choices)
             FullCT = mongo.db.cocktail.find_one({"name": correct})
-            AnsName = correct
-            choices = choices
+
+    choices = Question.choices
+
+
+    allCock = list(mongo.db.cocktail.find().sort("_id"))
+    
 
 
     sc = InitialInfo.SubChoice
     pickSB = InitialInfo.pickSub
     fullCT = Question.FullCT
-    ansName = Question.AnsName
-    choices = Question.choices
+    ansName = Question.correct
+    
 
     return render_template('index.html', 
-                            ps=pickSB, full=fullCT, name=ansName, choices=choices, x=sc)
+                            ps=pickSB, full=fullCT, theName=ansName, choices=choices, x=sc, allCock=allCock)
 
 
 if __name__ == '__main__':
