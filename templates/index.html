@@ -18,39 +18,71 @@
         Ingredients = {{ full.ingredients }} <br>
         {% endif %} 
         {% elif x == 'YN' %}
-        Hello <br><br>
+        Is "{{ full.name}}" {{ ps }}?<br><br>
         {% endif %}
 
-        <br>
-        sub choice{{ x }} <br><br><br>
-        
+
+<!--         
         {% for x in allCock %}
         {% for z in choices %}
         {% if z == x.name %}
         {{ x }} <br><br><br>
         {% endif %}
         {% endfor %}
+        {% endfor %} -->
+
+
+    </div>
+    <div class="row main">
+        <h1>test</h1>
+
+        {% for each in allCock %}
+        {% for x in choices %}
+        {% if each['name'] == x %}
+        {% if each[ps] == As %}
+        Yes {{each['name']}}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
         {% endfor %}
 
-
+        
+        <!-- {{ same }} <br><br><br><br>
+        {% for x in choices %}
+        {{ x }} <br><br>
+        {% endfor %} -->
 
 
 
     </div>
     <div class="row main">
         <h1>Answers</h1>
+        {% if x == 'multi' %}
         <ul>
-            {% for each in choices %}
-            <input type="radio" id='{{each}}' name='choices' value='{{each}}'>
-            <label for='{{each}}'>{{each}}</label><br>
+            {% for x in allCock %}
+            {% for z in choices %}
+            {% if z == x.name %}
+            <input type="radio" id='{{x.name}}' name='choice' value='{{x.name}}'>
+            <label for='{{x.name}}'>{{x.name}}</label><br>
+            {% endif %}
+            {% endfor %}
             {% endfor %}
         </ul>
+        {% elif x == 'YN' %}
+        <ul>
+            <input type="radio" id='{{x.name}}-yes' name='choice' value='{{x.name}}-yes'>
+            <label for='{{x.name}}-yes'>Yes</label><br>
+            <input type="radio" id='{{x.name}}-no' name='choice' value='{{x.name}}-no'>
+            <label for='{{x.name}}-no'>No</label><br>
+        </ul>
+        {% endif %}
 
         {{ theName }}
 
     </div>
     <div class="row main">
         <h1>Score</h1>
+        
 
     </div>
 
