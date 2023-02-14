@@ -17,7 +17,6 @@ mongo = PyMongo(app)
 def home():
     allCock = list(mongo.db.cocktail.find().sort("_id"))
 
-
     class InitialInfo:
         YN = ['strained', 'double strained']
         multi = ['garnish', 'glass', 'base spirit',
@@ -33,7 +32,6 @@ def home():
 
     pickSB = InitialInfo.pickSub
 
-
     class Question:
         CTnames = InitialInfo.allNames
         NameList = [CTnames]
@@ -48,14 +46,11 @@ def home():
     A_Sub = fullCT[pickSB]
     ansName = Question.correct
 
-
-
     for each in allCock:
         for x in choices:
             if each['name'] == x:
                 if each[pickSB] == A_Sub:
                     print('yes')
-
     
     return render_template('index.html',
                            ps=pickSB, full=fullCT, theName=ansName, choices=choices, x=sc, allCock=allCock, As=A_Sub)
